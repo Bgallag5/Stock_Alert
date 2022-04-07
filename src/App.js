@@ -8,6 +8,7 @@ import Steps from "./components/Steps/Steps";
 import UserStory from "./components/UserStory/UserStory";
 import ImageSection from "./components/ImageSection";
 import Footer from "./components/Footer/Footer";
+import CookieMessage from "./components/CookieMessage";
 
 export const GlobalContext = React.createContext();
 
@@ -16,6 +17,7 @@ function App() {
   const header = useRef();
   const featuresSection = useRef();
   const featuresTitle = useRef();
+  const overlayRef = useRef()
 
   //add EventListeners
   useEffect(() => {
@@ -70,10 +72,13 @@ function App() {
     header,
     featuresSection,
     featuresTitle,
+    overlayRef,
   };
 
   return (
     <GlobalContext.Provider value={globalVars}>
+      <div ref={overlayRef} className="blur-overlay hidden"></div>
+      <CookieMessage />
       <Header />
       <Hero />
       <Features />

@@ -535,6 +535,56 @@ header {
   font-size: small;
 }
 
+/* COOKIE MESSAGE ///////////// */
+.cookie-message{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 9999;
+    background-color: rgb(196, 196, 196);
+    height: 35vw;
+    width: 35vw;
+    transition: ease-in .5s;
+    gap: 2rem;
+    border-radius: 2%;
+}
+
+.cookie-text{
+    /* border: red 1px solid; */
+    display: flex;
+    justify-content: center;
+    margin-left: 1rem;
+    width: fit-content;
+}
+
+.cookie--btns{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.cookie--btns > button {
+    width: 100%;
+}
+
+.blur-overlay{
+    top: 0;
+    left: 0;
+    backdrop-filter: blur(2px);
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    z-index: 9999;
+    transition: ease-in 1s;
+}
+
+
 /* SHARED STYLES ////////////// */
 
 .title__text {
@@ -551,24 +601,11 @@ header {
 
 .hidden {
   display: none;
-}
-
-.parent {
-  border: 1px solid red;
-  height: 100vh;
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: cent;
-}
-
-.child {
-  border: 1px solid blue;
-  height: 100px;
-  width: 100px;
+  transition: 1s;
 }
 
 .section--hidden{
     opacity: 0;
     transform: translateY(8rem);
 }
+

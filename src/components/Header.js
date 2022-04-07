@@ -8,7 +8,7 @@ export default function Header() {
 
   return (
     <header ref={header} className="header">
-      <h1 className="header__title">STOCK ALARM</h1>
+      <h1 className="header__title">STOCK <br></br> ALARM</h1>
       <nav className="navbar__wrapper">
         <ul className="navbar">
           <li className="nav__item">Home</li>

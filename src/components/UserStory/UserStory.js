@@ -10,7 +10,7 @@ export default function UserStory() {
                 <button className="download-now"><h2>Download Now</h2></button>
             </div>
             <div className="story-img-container">
-                <img className="story__img" src={require("../../assets//story-girl.svg").default} />
+                <img className="story__img" alt='user' src={require("../../assets//story-girl.svg").default} />
             </div>
         </div>
         <div className="user__story user-story-2">
@@ -20,7 +20,7 @@ export default function UserStory() {
                 <button className="download-now"><h2>Download Now</h2></button>
             </div>
             <div className="story-img-container">
-                <img className="story__img" src={require("../../assets/story-boy.svg").default} />
+                <img className="story__img" alt='user' src={require("../../assets/story-boy.svg").default} />
             </div>
         </div>
     </section>
