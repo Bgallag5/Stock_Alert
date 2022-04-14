@@ -9,6 +9,7 @@ import UserStory from "./components/UserStory/UserStory";
 import ImageSection from "./components/ImageSection";
 import Footer from "./components/Footer/Footer";
 import CookieMessage from "./components/CookieMessage";
+import Reviews from "./components/Reviews";
 
 export const GlobalContext = React.createContext();
 
@@ -22,7 +23,6 @@ function App() {
   //add EventListeners
   useEffect(() => {
     const featuresCoords = featuresSection.current.getBoundingClientRect();
-    console.log(featuresCoords.top);
     //navbar styles on Scroll
     window.addEventListener("scroll", function () {
       if (window.scrollY > 10) {
@@ -45,8 +45,6 @@ function App() {
   //Reveal Sections using IntersectionObserver
   useEffect(() => {
     const allSections = document.querySelectorAll(".section");
-    console.log(allSections);
-
 
     const revealSection = function (entries, observer) {
       const [entry] = entries;
@@ -85,6 +83,7 @@ function App() {
       <ImageSection />
       <Steps />
       <UserStory />
+      <Reviews />
       <Footer />
     </GlobalContext.Provider>
   );

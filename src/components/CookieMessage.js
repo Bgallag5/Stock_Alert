@@ -30,7 +30,7 @@ export default function CookieMessage() {
         //     return
         //     }
         setTimeout(() => {
-            displayCookieMessage();
+            // displayCookieMessage();
         }, 2000)
     }, []);
 
