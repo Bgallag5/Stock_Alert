@@ -17,6 +17,7 @@ Stock alert my own recreation of the website https://stockalarm.io/. I build thi
 [Stock Alert](https://bgstock-alert.herokuapp.com/)
 
 ### Images
+<img width="1236" alt="stock--img" src="https://user-images.githubusercontent.com/82895658/163608501-9cc09f1a-dc33-4023-8f22-f05f3c611e1d.png">
 
 
 ### Technology Used
