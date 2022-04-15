@@ -1,22 +1,24 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 
 export default function Reviews() {
   const currentSlide = useRef(0);
+  const dotRef = useRef(0);
+  const [slides, setSlides] = useState("");
 
   //on mount build slider
-  //add slider functionality
   useEffect(() => {
     buildSliderFunctionality();
   }, []);
 
+  //add slider functionality
   const buildSliderFunctionality = () => {
-    const slides = document.querySelectorAll(".slide-item");
+    let slides = document.querySelectorAll(".slide-item");
+    setSlides(Array.from(slides));
     const buttons = document.querySelectorAll(".slider-btn");
 
     //position slides with TransformX
     const positionSlides = function () {
       slides?.forEach((slide, i) => {
-        console.log(slide);
         slide.style.transform = `translateX(${
           100 * (i - currentSlide.current)
         }%)`;
@@ -29,11 +31,9 @@ export default function Reviews() {
         //set currentSlide ref
         const offset = e.target.dataset.direction === "right" ? 1 : -1;
         if (currentSlide.current === 0 && offset === -1) {
-          console.log("NOWHERE OT GO LEFT");
           return;
         }
         if (currentSlide.current === slides.length - 1 && offset === 1) {
-          console.log("NOWHERE OT GO RIGHT");
           return;
         }
         currentSlide.current = currentSlide.current + offset;
@@ -42,6 +42,16 @@ export default function Reviews() {
     });
   };
 
+  const Dots = () => {
+        // if (!slides) return
+   slides && slides.map((slide, i) => {
+        return (<button  className="dot" data-slide={i}></button>)
+    })
+        
+  }
+
+//   console.log(slides);
+
   return (
     <div className="section reviews-section">
       <h2 className="reviews-header">See what our users think...</h2>
@@ -49,7 +59,9 @@ export default function Reviews() {
         <div className="slide-item">
           <p className="slide-review">
             <p className="review-quotation">"</p>
-            Stock Alert is fantastic! I don't have to worry about what's happening in the market each and every second. If anything happens I need to know about, I get an alert straight to my phone!
+            Stock Alert is fantastic! I don't have to worry about what's
+            happening in the market each and every second. If anything happens I
+            need to know about, I get an alert straight to my phone!
             <p className="review-quotation quotation--end">"</p>
           </p>
           <div className="slide-user">
@@ -61,7 +73,12 @@ export default function Reviews() {
         <div className="slide-item">
           <p className="slide-review">
             <p className="review-quotation">"</p>
-            Lorem ipsum dolor sit amet. Ut unde voluptatem et dicta galisum qui veritatis omnis est odit neque vel molestiae accusantium ex neque odit. Vel sunt esse eum nostrum distinctio qui provident repudiandae aut quod labore et porro quidem ut animi laudantium. In architecto suscipit est obcaecati consequatur eos laudantium excepturi est dolor nostrum.
+            Lorem ipsum dolor sit amet. Ut unde voluptatem et dicta galisum qui
+            veritatis omnis est odit neque vel molestiae accusantium ex neque
+            odit. Vel sunt esse eum nostrum distinctio qui provident repudiandae
+            aut quod labore et porro quidem ut animi laudantium. In architecto
+            suscipit est obcaecati consequatur eos laudantium excepturi est
+            dolor nostrum.
             <p className="review-quotation quotation--end">"</p>
           </p>
           <div className="slide-user">
@@ -73,7 +90,12 @@ export default function Reviews() {
         <div className="slide-item">
           <p className="slide-review">
             <p className="review-quotation">"</p>
-            Est praesentium deleniti ex ipsum voluptatem est illum adipisci et nesciunt soluta a atque laboriosam ad dolor quasi non architecto error. Hic rerum maiores cum sint voluptatem qui maiores voluptas id maxime praesentium sit laborum cumque qui ullam nihil. In esse ipsum et provident omnis non tempore recusandae vel ratione nobis vel impedit rerum?
+            Est praesentium deleniti ex ipsum voluptatem est illum adipisci et
+            nesciunt soluta a atque laboriosam ad dolor quasi non architecto
+            error. Hic rerum maiores cum sint voluptatem qui maiores voluptas id
+            maxime praesentium sit laborum cumque qui ullam nihil. In esse ipsum
+            et provident omnis non tempore recusandae vel ratione nobis vel
+            impedit rerum?
             <p className="review-quotation quotation--end">"</p>
           </p>
           <div className="slide-user">
@@ -85,7 +107,7 @@ export default function Reviews() {
         <div className="slide-item">
           <p className="slide-review">
             <p className="review-quotation">"</p>
-            Why can't all apps be this easy? 
+            Why can't all apps be this easy?
             <p className="review-quotation quotation--end">"</p>
           </p>
           <div className="slide-user">
@@ -100,6 +122,9 @@ export default function Reviews() {
         <button className="slider-btn slider-btn--right" data-direction="right">
           &rarr;
         </button>
+        <div className="dots">
+            <Dots />
+        </div>
       </div>
     </div>
   );
