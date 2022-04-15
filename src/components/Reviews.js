@@ -43,7 +43,6 @@ export default function Reviews() {
   };
 
   const Dots = () => {
-        // if (!slides) return
    slides && slides.map((slide, i) => {
         return (<button  className="dot" data-slide={i}></button>)
     })
